@@ -15,9 +15,10 @@ jobs:
       - name: Mover contenido a la raíz
         run: |
           set -e
-          SITE_DIR="mercado lank-mx"
+          SITE_DIR="lank-mx-marketplace"
           if [ ! -d "$SITE_DIR" ]; then
             echo "No existe la carpeta: $SITE_DIR"
+            echo "Carpetas/archivos disponibles en root:"
             ls -la
             exit 1
           fi
