@@ -1,0 +1,26 @@
+name: Descomprimir ZIP
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Descomprimir
+        run: |
+          unzip -o "lank-mx-marketplace.zip" -d "."
+
+      - name: Subir cambios
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add -A
+          git commit -m "Descomprimir ZIP" || echo "Sin cambios"
+          git push
