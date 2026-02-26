@@ -15,14 +15,12 @@ jobs:
       - name: Mover contenido a la raíz
         run: |
           set -e
-          SITE_DIR="mercado lank"
-
+          SITE_DIR="mercado lank-mx"
           if [ ! -d "$SITE_DIR" ]; then
             echo "No existe la carpeta: $SITE_DIR"
             ls -la
             exit 1
           fi
-
           shopt -s dotglob
           mv "$SITE_DIR"/* .
           rm -rf "$SITE_DIR"
